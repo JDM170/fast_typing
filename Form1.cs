@@ -6,7 +6,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        int timerInterval = 2000;
+        int timerInterval = 500;
         int lastSymbol = 0;
         int pass_count = 0;
         int err_count = 0;
@@ -20,9 +20,13 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             timer.Tick += new EventHandler(timerCallback);
-            trackBar1.Maximum = timerInterval;
-            trackBar1.Minimum = timerInterval - 1000;
+            trackBar1.Minimum = timerInterval;
+            //trackBar1.Maximum = timerInterval + 1000;
+            trackBar1.Maximum = timerInterval + 500;
+            trackBar1.Value = trackBar1.Maximum;
         }
 
         private void timerCallback(object sender, EventArgs e)

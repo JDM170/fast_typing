@@ -155,6 +155,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btn_stop);
             this.Controls.Add(this.btn_start);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Учимся печатать быстро";
             this.Load += new System.EventHandler(this.Form1_Load);
