@@ -24,7 +24,6 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             timer.Tick += new EventHandler(timerCallback);
             trackBar1.Minimum = timerInterval;
-            //trackBar1.Maximum = timerInterval + 1000;
             trackBar1.Maximum = timerInterval + 500;
             trackBar1.Value = trackBar1.Maximum;
         }
@@ -37,6 +36,7 @@ namespace WindowsFormsApp1
             else
             {
                 timer.Stop();
+                btn_start.Enabled = true;
                 MessageBox.Show("Игра окончена");
             }
         }
@@ -52,11 +52,16 @@ namespace WindowsFormsApp1
             timer.Interval = timerInterval;
             textBox1.Focus();
             timer.Start();
+            btn_start.Enabled = false;
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
-            if (timer.Enabled) timer.Stop();
+            if (timer.Enabled)
+            {
+                timer.Stop();
+                btn_start.Enabled = true;
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
