@@ -1,12 +1,4 @@
 ﻿using System;
-/*using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;*/
 using System.Windows.Forms;
 
 
@@ -14,8 +6,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        static int timerStart = 2000;
-        string str = "";
+        int timerInterval = 2000;
         int lastSymbol = 0;
         int pass_count = 0;
         int err_count = 0;
@@ -27,14 +18,18 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void timerCallback(object sender, EventArgs ea)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer.Tick += new EventHandler(timerCallback);
+            trackBar1.Maximum = timerInterval;
+            trackBar1.Minimum = timerInterval - 1000;
+        }
+
+        private void timerCallback(object sender, EventArgs e)
         {
             lastSymbol = rnd.Next(1072, 1103);
-            if (str.Length < 10)
-            {
-                str += (char)lastSymbol;
-                textBox1.Text = str;
-            }
+            if (textBox1.Text.Length < 10)
+                textBox1.Text += (char)lastSymbol;
             else
             {
                 timer.Stop();
@@ -44,19 +39,20 @@ namespace WindowsFormsApp1
 
         private void btn_start_Click(object sender, EventArgs e)
         {
+            if (timer.Enabled) return;
             pass_count = 0;
             err_count = 0;
+            textBox1.Text = "";
             lbl_pass_count.Text = pass_count.ToString();
             lbl_err_count.Text = err_count.ToString();
-            timer.Interval = timerStart;
-            timer.Tick += new EventHandler(timerCallback);
-            timer.Start();
+            timer.Interval = timerInterval;
             textBox1.Focus();
+            timer.Start();
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
-            if(timer.Enabled) timer.Stop();
+            if (timer.Enabled) timer.Stop();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -66,9 +62,9 @@ namespace WindowsFormsApp1
             {
                 if (e.KeyChar == lastSymbol)
                 {
-                    str = str.Substring(0, str.Length - 1);
+                    string text = textBox1.Text;
+                    textBox1.Text = text.Substring(0, text.Length - 1);
                     pass_count++;
-                    textBox1.Text = str;
                     lbl_pass_count.Text = pass_count.ToString();
                 }
                 else
@@ -79,10 +75,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        /*private void trackBar1_ValueChanged(object sender, EventArgs e)
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            textBox2.Clear();
-            textBox2.Text += trackBar1.Value.ToString();
-        }*/
+            timerInterval = trackBar1.Value;
+        }
     }
 }

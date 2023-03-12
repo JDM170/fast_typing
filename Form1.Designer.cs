@@ -43,7 +43,7 @@
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(30, 26);
+            this.btn_start.Location = new System.Drawing.Point(81, 130);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(75, 23);
             this.btn_start.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(136, 26);
+            this.btn_stop.Location = new System.Drawing.Point(179, 130);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(75, 23);
             this.btn_stop.TabIndex = 1;
@@ -64,9 +64,9 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(30, 67);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 31);
+            this.textBox1.Size = new System.Drawing.Size(305, 31);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -74,9 +74,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 120);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Пройдено:";
             // 
@@ -84,63 +85,66 @@
             // 
             this.lbl_pass_count.AutoSize = true;
             this.lbl_pass_count.BackColor = System.Drawing.SystemColors.Control;
-            this.lbl_pass_count.Location = new System.Drawing.Point(92, 120);
+            this.lbl_pass_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_pass_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbl_pass_count.Location = new System.Drawing.Point(107, 64);
             this.lbl_pass_count.Name = "lbl_pass_count";
-            this.lbl_pass_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_pass_count.Size = new System.Drawing.Size(17, 18);
             this.lbl_pass_count.TabIndex = 4;
             this.lbl_pass_count.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 158);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(12, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(76, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Ошибок:";
             // 
             // lbl_err_count
             // 
             this.lbl_err_count.AutoSize = true;
-            this.lbl_err_count.Location = new System.Drawing.Point(92, 158);
+            this.lbl_err_count.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_err_count.ForeColor = System.Drawing.Color.Red;
+            this.lbl_err_count.Location = new System.Drawing.Point(107, 91);
             this.lbl_err_count.Name = "lbl_err_count";
-            this.lbl_err_count.Size = new System.Drawing.Size(13, 13);
+            this.lbl_err_count.Size = new System.Drawing.Size(17, 18);
             this.lbl_err_count.TabIndex = 6;
             this.lbl_err_count.Text = "0";
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(179, 126);
+            this.trackBar1.Location = new System.Drawing.Point(153, 64);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(157, 45);
             this.trackBar1.TabIndex = 7;
-            this.trackBar1.Visible = false;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 158);
+            this.label2.Location = new System.Drawing.Point(140, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "медленнее";
-            this.label2.Visible = false;
+            this.label2.Text = "быстрее";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 158);
+            this.label4.Location = new System.Drawing.Point(265, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "быстрее";
-            this.label4.Visible = false;
+            this.label4.Text = "медленнее";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 204);
+            this.ClientSize = new System.Drawing.Size(334, 162);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBar1);
@@ -153,6 +157,7 @@
             this.Controls.Add(this.btn_start);
             this.Name = "Form1";
             this.Text = "Учимся печатать быстро";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
